@@ -300,12 +300,6 @@ const Validation: React.FC = () => {
 // --- 5.5 Intelligence Workflow ---
 const IntelligenceWorkflow: React.FC = () => {
   const steps = ['DATA', 'VISUALIZE', 'COMPARE', 'DETECT', 'UNDERSTAND', 'DECIDE'];
-  const differentiators = [
-    "Unified 3D model + observation environment",
-    "Depth-aware model-observation comparison",
-    "Automated discrepancy/anomaly insights",
-    "Browser-native scientific analysis"
-  ];
 
   return (
     <section id="intelligence" className="py-24 px-6 border-b border-white/10 bg-transparent">
@@ -317,7 +311,7 @@ const IntelligenceWorkflow: React.FC = () => {
         />
         
         {/* Workflow Pipeline Visual */}
-        <div className="mb-16 p-6 border border-white/20 bg-white/[0.05] backdrop-blur-xl shadow-lg rounded-sm overflow-x-auto">
+        <div className="p-6 border border-white/20 bg-white/[0.05] backdrop-blur-xl shadow-lg rounded-sm overflow-x-auto">
           <div className="flex items-center justify-between min-w-max gap-4 px-4">
             {steps.map((step, i) => (
               <React.Fragment key={step}>
@@ -330,20 +324,6 @@ const IntelligenceWorkflow: React.FC = () => {
               </React.Fragment>
             ))}
           </div>
-        </div>
-
-        {/* Differentiators Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {differentiators.map((diff, i) => (
-            <div key={i} className="flex items-center gap-4 p-5 border border-white/20 bg-white/[0.05] hover:bg-white/[0.1] hover:border-white/30 transition-colors backdrop-blur-md rounded-sm shadow-sm group">
-              <div className="text-cyan-400 group-hover:scale-110 transition-transform">
-                <Target size={18} />
-              </div>
-              <div className="font-mono text-sm text-gray-200 tracking-wide drop-shadow-sm">
-                {diff}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
