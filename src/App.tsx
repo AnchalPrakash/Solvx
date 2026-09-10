@@ -373,7 +373,7 @@ const RequirementCoverage: React.FC = () => {
       <div className="max-w-[90rem] mx-auto">
         <SectionHeader 
           tag="Hackathon Criteria" 
-          title="SIH ID-26067" 
+          title="SIH26067 // REQUIREMENT COVERAGE" 
           description="A direct mapping of platform capabilities against the official Smart India Hackathon problem statement requirements."
         />
         
@@ -464,11 +464,16 @@ const TechImpact: React.FC = () => (
           <Globe className="text-cyan-400 drop-shadow-[0_0_5px_#22d3ee]" size={20} />
           <h2 className="text-xl font-medium text-white drop-shadow-md">Scientific Impact</h2>
         </div>
-        <div className="space-y-8">
+        <div className="space-y-4">
           {[
             { title: "Climate Modeling", desc: "Validate boundary conditions for long-term ocean-atmosphere coupled models." },
             { title: "Marine Navigation", desc: "Provide real-time surface current maps validated by glider tracks for routing." },
-            { title: "Ecological Monitoring", desc: "Track hypoxia and chlorophyll blooms via integrated BGC data and modeling." }
+            { title: "Ecological Monitoring", desc: "Track hypoxia and chlorophyll blooms via integrated BGC data and modeling." },
+            { title: "Disaster Management", desc: "Anticipate coastal hazards by rapidly comparing real-time telemetry against predictive spatial models." },
+            { title: "Search & Rescue", desc: "Improve drift trajectory predictions by refining surface current models with live observational data." },
+            { title: "Fisheries", desc: "Identify optimal pelagic zones and protect habitats by analyzing depth-aware temperature and chlorophyll layers." },
+            { title: "Climate Monitoring", desc: "Track long-term oceanic shifts by grounding decadal model forecasts directly in historical in-situ data." },
+            { title: "Scientific Research", desc: "Accelerate discovery through a unified environment for visual comparison of complex multi-dimensional arrays." }
           ].map((item, i) => (
             <div key={i} className="pl-5 border-l-2 border-cyan-400/50 bg-white/[0.05] backdrop-blur-md p-4 rounded-r-sm shadow-sm hover:bg-white/[0.08] transition-colors">
               <h4 className="text-white text-sm font-medium mb-1.5 drop-shadow-sm">{item.title}</h4>
