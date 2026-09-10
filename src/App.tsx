@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { 
+  Activity, BarChart2, Layers, Map, Navigation, 
+  Thermometer, Droplet, Target, Globe, 
+  ArrowRight, Terminal, ChevronRight,
+  ArrowUpRight, ArrowDownRight
+} from 'lucide-react';
 
 // --- Shared UI Components ---
 const SectionHeader: React.FC<{ tag: string; title: string; description?: string }> = ({ tag, title, description }) => (
