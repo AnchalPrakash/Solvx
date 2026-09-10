@@ -297,6 +297,59 @@ const Validation: React.FC = () => {
   );
 };
 
+// --- 5.5 Intelligence Workflow ---
+const IntelligenceWorkflow: React.FC = () => {
+  const steps = ['DATA', 'VISUALIZE', 'COMPARE', 'DETECT', 'UNDERSTAND', 'DECIDE'];
+  const differentiators = [
+    "Unified 3D model + observation environment",
+    "Depth-aware model-observation comparison",
+    "Automated discrepancy/anomaly insights",
+    "Browser-native scientific analysis"
+  ];
+
+  return (
+    <section id="intelligence" className="py-24 px-6 border-b border-white/10 bg-transparent">
+      <div className="max-w-[90rem] mx-auto">
+        <SectionHeader 
+          tag="Operational Pipeline" 
+          title="FROM VISUALIZATION TO INTELLIGENCE" 
+          description="SolvX combines numerical ocean model outputs with real-world Argo and Glider observations, allowing for strict depth- and time-aware comparisons."
+        />
+        
+        {/* Workflow Pipeline Visual */}
+        <div className="mb-16 p-6 border border-white/20 bg-white/[0.05] backdrop-blur-xl shadow-lg rounded-sm overflow-x-auto">
+          <div className="flex items-center justify-between min-w-max gap-4 px-4">
+            {steps.map((step, i) => (
+              <React.Fragment key={step}>
+                <div className={`px-4 py-2 font-mono text-xs md:text-sm tracking-widest uppercase rounded-sm border ${i === steps.length - 1 ? 'border-cyan-400 bg-cyan-900/40 text-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.2)]' : 'border-white/20 bg-white/[0.05] text-gray-300'}`}>
+                  {step}
+                </div>
+                {i < steps.length - 1 && (
+                  <ChevronRight size={16} className="text-cyan-500/50 flex-shrink-0" />
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
+        {/* Differentiators Grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {differentiators.map((diff, i) => (
+            <div key={i} className="flex items-center gap-4 p-5 border border-white/20 bg-white/[0.05] hover:bg-white/[0.1] hover:border-white/30 transition-colors backdrop-blur-md rounded-sm shadow-sm group">
+              <div className="text-cyan-400 group-hover:scale-110 transition-transform">
+                <Target size={18} />
+              </div>
+              <div className="font-mono text-sm text-gray-200 tracking-wide drop-shadow-sm">
+                {diff}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // --- 6. Applications & Tech Stack ---
 const TechImpact: React.FC = () => (
   <section className="py-24 px-6 border-b border-white/10 bg-transparent">
@@ -409,6 +462,7 @@ const App: React.FC = () => {
         <TargetAudience />
         <Variables />
         <Validation />
+        <IntelligenceWorkflow />
         <TechImpact />
         <Footer />
       </div>
