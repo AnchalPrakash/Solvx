@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
 import { 
   Activity, BarChart2, Layers, Map, Navigation, 
-  Thermometer, Droplet, Target, Globe, Database, 
-  Anchor, ArrowRight, Terminal, ChevronRight,
+  Thermometer, Droplet, Target, Globe, 
+  ArrowRight, Terminal, ChevronRight,
   ArrowUpRight, ArrowDownRight
 } from 'lucide-react';
 
