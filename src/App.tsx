@@ -392,6 +392,69 @@ const RequirementCoverage: React.FC = () => {
   );
 };
 
+// --- 5.8 Deployment & MVP Scope ---
+const MVPScope: React.FC = () => {
+  const mvpFeatures = [
+    { icon: <Thermometer size={16} />, text: "Temperature" },
+    { icon: <Droplet size={16} />, text: "Salinity" },
+    { icon: <Navigation size={16} />, text: "Ocean Currents" },
+    { icon: <Target size={16} />, text: "Argo/Glider Observations" },
+    { icon: <Layers size={16} />, text: "Depth & Time Exploration" },
+    { icon: <Activity size={16} />, text: "Model vs Obs Comparison" }
+  ];
+
+  const architecturePoints = [
+    { title: "Standard Scientific Formats", desc: "Native ingestion of NetCDF and CSV datasets to ensure compatibility with global ocean observing systems." },
+    { title: "Modular Architecture", desc: "Decoupled React/WebGL frontend and backend data processing for independent scaling and maintenance." },
+    { title: "Browser-Based Deployment", desc: "Zero-install environment accessible from standard hardware, securely deployed to edge networks." },
+    { title: "Incremental Dataset Expansion", desc: "MVP focuses on core physical and biogeochemical parameters, with architecture designed to accept real-time pipelines in future iterations." }
+  ];
+
+  return (
+    <section id="roadmap" className="py-24 px-6 border-b border-white/10 bg-transparent">
+      <div className="max-w-[90rem] mx-auto">
+        <SectionHeader 
+          tag="Roadmap" 
+          title="BUILT FOR THE HACKATHON. DESIGNED FOR DEPLOYMENT." 
+          description="Clear boundaries on what SolvX delivers today as a realistic MVP, and how the architectural foundations scale for tomorrow's operational deployments."
+        />
+        
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Left Column: MVP Scope */}
+          <div className="p-8 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-lg flex flex-col">
+            <h3 className="text-sm font-mono text-cyan-400 mb-6 flex items-center gap-2 drop-shadow-md">
+              <Terminal size={14} /> MVP SCOPE (v1.0)
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-4 flex-1">
+              {mvpFeatures.map((f, i) => (
+                <div key={i} className="flex items-center gap-3 p-3 border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] transition-colors rounded-sm">
+                  <div className="text-cyan-400 flex-shrink-0">{f.icon}</div>
+                  <span className="text-sm font-medium text-gray-200">{f.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column: Architecture Details */}
+          <div className="p-8 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-lg">
+            <h3 className="text-sm font-mono text-gray-300 mb-6 flex items-center gap-2 drop-shadow-md">
+              <Globe size={14} /> ARCHITECTURE & EXPANSION
+            </h3>
+            <div className="space-y-6">
+              {architecturePoints.map((pt, i) => (
+                <div key={i} className="pl-4 border-l-2 border-cyan-500/30 hover:border-cyan-400/80 transition-colors group">
+                  <h4 className="text-sm font-bold text-white mb-1 drop-shadow-md group-hover:text-cyan-300 transition-colors">{pt.title}</h4>
+                  <p className="text-xs text-gray-300 leading-relaxed drop-shadow-sm">{pt.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // --- 6. Applications & Tech Stack ---
 const TechImpact: React.FC = () => (
   <section className="py-24 px-6 border-b border-white/10 bg-transparent">
@@ -506,6 +569,7 @@ const App: React.FC = () => {
         <Validation />
         <IntelligenceWorkflow />
         <RequirementCoverage />
+        <MVPScope />
         <TechImpact />
         <Footer />
       </div>
