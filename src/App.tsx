@@ -3,7 +3,7 @@ import {
   Activity, BarChart2, Layers, Map, Navigation, 
   Thermometer, Droplet, Target, Globe, 
   ArrowRight, Terminal, ChevronRight,
-  ArrowUpRight, ArrowDownRight
+  ArrowUpRight, ArrowDownRight, Check
 } from 'lucide-react';
 
 // --- Shared UI Components ---
@@ -350,6 +350,48 @@ const IntelligenceWorkflow: React.FC = () => {
   );
 };
 
+// --- 5.7 Requirement Coverage ---
+const RequirementCoverage: React.FC = () => {
+  const requirements = [
+    "Browser-based 3D visualization",
+    "Numerical ocean model data",
+    "Argo observations",
+    "Glider observations",
+    "Temperature",
+    "Salinity",
+    "Ocean currents",
+    "Chlorophyll",
+    "Depth exploration",
+    "Time exploration",
+    "Model vs Observation comparison",
+    "Scientific data ingestion",
+    "Interactive analysis"
+  ];
+
+  return (
+    <section id="requirements" className="py-24 px-6 border-b border-white/10 bg-transparent">
+      <div className="max-w-[90rem] mx-auto">
+        <SectionHeader 
+          tag="Hackathon Criteria" 
+          title="SIH26067 // REQUIREMENT COVERAGE" 
+          description="A direct mapping of platform capabilities against the official Smart India Hackathon problem statement requirements."
+        />
+        
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {requirements.map((req, i) => (
+            <div key={i} className="flex items-center gap-3 p-4 border border-white/20 bg-white/[0.05] backdrop-blur-md rounded-sm hover:bg-white/[0.1] hover:border-cyan-500/40 transition-all group shadow-sm">
+              <div className="w-6 h-6 rounded-full bg-black/30 border border-white/20 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-950/50 group-hover:border-cyan-500/50 transition-colors">
+                <Check size={12} className="text-cyan-400" />
+              </div>
+              <span className="text-sm font-mono text-gray-200 drop-shadow-sm">{req}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // --- 6. Applications & Tech Stack ---
 const TechImpact: React.FC = () => (
   <section className="py-24 px-6 border-b border-white/10 bg-transparent">
@@ -463,6 +505,7 @@ const App: React.FC = () => {
         <Variables />
         <Validation />
         <IntelligenceWorkflow />
+        <RequirementCoverage />
         <TechImpact />
         <Footer />
       </div>
