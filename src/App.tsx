@@ -353,7 +353,7 @@ const RequirementCoverage: React.FC = () => {
       <div className="max-w-[90rem] mx-auto">
         <SectionHeader 
           tag="Hackathon Criteria" 
-          title="SIH26067 // REQUIREMENT COVERAGE" 
+          title="SIH ID-26067" 
           description="A direct mapping of platform capabilities against the official Smart India Hackathon problem statement requirements."
         />
         
