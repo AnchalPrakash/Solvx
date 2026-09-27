@@ -3,7 +3,7 @@ import {
   Activity, BarChart2, Layers, Map, Navigation, 
   Thermometer, Droplet, Target, Globe, 
   ArrowRight, Terminal, ChevronRight,
-  ArrowUpRight, ArrowDownRight
+  ArrowUpRight, ArrowDownRight, User
 } from 'lucide-react';
 
 // --- Shared UI Components ---
@@ -33,6 +33,7 @@ const Navbar: React.FC = () => (
           <a href="#audience" className="hover:text-cyan-400 transition-colors">AUDIENCE</a>
           <a href="#variables" className="hover:text-cyan-400 transition-colors">TELEMETRY</a>
           <a href="#validation" className="hover:text-cyan-400 transition-colors">VALIDATION</a>
+          <a href="#about" className="hover:text-cyan-400 transition-colors">ABOUT</a>
         </div>
       </div>
       <div className="flex items-center gap-6">
@@ -390,9 +391,45 @@ const TechImpact: React.FC = () => (
   </section>
 );
 
-// --- 7. Final Tiny Footer ---
+// --- 7. Team Section ---
+const AboutTeam: React.FC = () => {
+  const teamMembers = [
+    { name: "Team Member 1", role: "Frontend & UI/UX" },
+    { name: "Team Member 2", role: "Data Pipeline" },
+    { name: "Team Member 3", role: "3D Visualization" },
+    { name: "Team Member 4", role: "Oceanographic Models" },
+    { name: "Team Member 5", role: "Cloud Architecture" },
+    { name: "Team Member 6", role: "Research & Validation" }
+  ];
+
+  return (
+    <section id="about" className="py-24 px-6 border-b border-white/10 bg-transparent">
+      <div className="max-w-[90rem] mx-auto">
+        <SectionHeader 
+          tag="The Team" 
+          title="TEAM SOLVX" 
+          description="Manipal Institute of Technology Bengaluru" 
+        />
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mt-8">
+          {teamMembers.map((member, i) => (
+            <div key={i} className="p-6 border border-white/20 bg-white/[0.05] backdrop-blur-md rounded-sm hover:bg-white/[0.1] hover:border-cyan-500/50 transition-all group text-center flex flex-col items-center shadow-md">
+              <div className="w-16 h-16 bg-cyan-950/40 border border-cyan-500/30 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-cyan-900/60 transition-all shadow-[0_0_15px_rgba(6,182,212,0.1)]">
+                <User size={24} className="text-cyan-400 opacity-80" />
+              </div>
+              <h4 className="text-white text-sm font-bold mb-1.5 drop-shadow-sm">{member.name}</h4>
+              <p className="text-[9px] font-mono text-cyan-300/80 uppercase tracking-widest">{member.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// --- 8. Final Tiny Footer ---
 const Footer: React.FC = () => (
-  <footer className="py-8 px-6 bg-transparent flex flex-col md:flex-row justify-between items-center gap-4 mt-8">
+  <footer className="py-8 px-6 bg-transparent flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/10 mt-16">
     <div className="text-gray-300 font-mono text-[10px] uppercase tracking-widest drop-shadow-md">
       © {new Date().getFullYear()} SolvX System — Hackathon Build
     </div>
@@ -423,6 +460,7 @@ const App: React.FC = () => {
         <Validation />
         <IntelligenceWorkflow />
         <TechImpact />
+        <AboutTeam />
         <Footer />
       </div>
     </div>
