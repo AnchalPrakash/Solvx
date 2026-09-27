@@ -333,13 +333,15 @@ const IntelligenceWorkflow: React.FC = () => {
 // --- 6. Applications & Tech Stack ---
 const TechImpact: React.FC = () => (
   <section className="py-24 px-6 border-b border-white/10 bg-transparent">
-    <div className="max-w-[90rem] mx-auto grid lg:grid-cols-2 gap-16">
+    <div className="max-w-[90rem] mx-auto flex flex-col gap-16">
+      
+      {/* Scientific Impact */}
       <div>
         <div className="flex items-center gap-3 mb-8">
           <Globe className="text-cyan-400 drop-shadow-[0_0_5px_#22d3ee]" size={20} />
           <h2 className="text-xl font-medium text-white drop-shadow-md">Scientific Impact</h2>
         </div>
-        <div className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4">
           {[
             { title: "Climate Modeling", desc: "Validate boundary conditions for long-term ocean-atmosphere coupled models." },
             { title: "Marine Navigation", desc: "Provide real-time surface current maps validated by glider tracks for routing." },
@@ -350,44 +352,47 @@ const TechImpact: React.FC = () => (
             { title: "Climate Monitoring", desc: "Track long-term oceanic shifts by grounding decadal model forecasts directly in historical in-situ data." },
             { title: "Scientific Research", desc: "Accelerate discovery through a unified environment for visual comparison of complex multi-dimensional arrays." }
           ].map((item, i) => (
-            <div key={i} className="pl-5 border-l-2 border-cyan-400/50 bg-white/[0.05] backdrop-blur-md p-4 rounded-r-sm shadow-sm hover:bg-white/[0.08] transition-colors">
+            <div key={i} className="pl-5 border-l-2 border-cyan-400/50 bg-white/[0.05] backdrop-blur-md p-4 rounded-r-sm shadow-sm hover:bg-white/[0.1] transition-colors">
               <h4 className="text-white text-sm font-medium mb-1.5 drop-shadow-sm">{item.title}</h4>
               <p className="text-sm text-gray-200">{item.desc}</p>
             </div>
           ))}
         </div>
       </div>
+
+      {/* System Architecture */}
       <div>
         <div className="flex items-center gap-3 mb-8">
           <Terminal className="text-cyan-400 drop-shadow-[0_0_5px_#22d3ee]" size={20} />
           <h2 className="text-xl font-medium text-white drop-shadow-md">System Architecture</h2>
         </div>
-        <div className="p-6 border border-white/20 bg-white/[0.05] backdrop-blur-xl shadow-xl space-y-4 font-mono text-xs rounded-sm">
-          <div className="flex justify-between items-center py-2 border-b border-white/20">
-            <span className="text-gray-300">Frontend_UI</span> 
-            <span className="text-gray-100 font-bold">React + TS + Tailwind</span>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+          <div className="p-5 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
+            <div className="text-gray-400 mb-2 uppercase tracking-widest text-[9px]">Frontend_UI</div>
+            <div className="text-gray-100 font-bold text-sm">React + TS + Tailwind</div>
           </div>
-          <div className="flex justify-between items-center py-2 border-b border-white/20">
-            <span className="text-gray-300">Renderer</span> 
-            <span className="text-cyan-300 font-bold drop-shadow-sm">Three.js / WebGL</span>
+          <div className="p-5 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
+            <div className="text-gray-400 mb-2 uppercase tracking-widest text-[9px]">Renderer</div>
+            <div className="text-cyan-300 font-bold text-sm drop-shadow-sm">Three.js / WebGL</div>
           </div>
-          <div className="flex justify-between items-center py-2 border-b border-white/20">
-            <span className="text-gray-300">Data_Processing</span> 
-            <span className="text-gray-100 font-bold">Python + Xarray + Zarr</span>
+          <div className="p-5 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
+            <div className="text-gray-400 mb-2 uppercase tracking-widest text-[9px]">Data_Processing</div>
+            <div className="text-gray-100 font-bold text-sm">Python + Xarray + Zarr</div>
           </div>
-          <div className="flex justify-between items-center py-2 border-b border-white/10">
-            <span className="text-gray-300">Pipeline_Orchestration</span> 
-            <span className="text-gray-100 font-bold">GitHub Actions / Vercel</span>
+          <div className="p-5 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
+            <div className="text-gray-400 mb-2 uppercase tracking-widest text-[9px]">Pipeline_Orchestration</div>
+            <div className="text-gray-100 font-bold text-sm">GitHub Actions / Vercel</div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 );
 
 // --- 7. Final Tiny Footer ---
 const Footer: React.FC = () => (
-  <footer className="py-8 px-6 bg-transparent flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/10 mt-16">
+  <footer className="py-8 px-6 bg-transparent flex flex-col md:flex-row justify-between items-center gap-4 mt-8">
     <div className="text-gray-300 font-mono text-[10px] uppercase tracking-widest drop-shadow-md">
       © {new Date().getFullYear()} SolvX System — Hackathon Build
     </div>
@@ -404,11 +409,11 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen text-gray-100 font-sans selection:bg-cyan-900/50 selection:text-cyan-50 relative">
       <div 
-        className="fixed inset-0 z-[-2] bg-cover bg-center bg-no-repeat opacity-50"
+        className="fixed inset-0 z-[-2] bg-cover bg-center bg-no-repeat opacity-75"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1551244072-5d12893278ab?q=80&w=2560&auto=format&fit=crop')" }}
       ></div>
       <div 
-        className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-b from-[#01111d]/60 to-black/90"
+        className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-b from-[#0369a1]/30 to-[#020617]/80"
       ></div>
       <div className="relative z-10">
         <Navbar />
