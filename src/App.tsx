@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { 
   Activity, BarChart2, Layers, Map, Navigation, 
   Thermometer, Droplet, Target, Globe, 
@@ -522,29 +522,14 @@ const Footer: React.FC = () => (
 
 // --- Main App Composer ---
 const App: React.FC = () => {
-  const [scrollDepth, setScrollDepth] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = window.scrollY / totalHeight;
-      setScrollDepth(Math.min(Math.max(progress, 0), 1));
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <div className="min-h-screen text-gray-100 font-sans selection:bg-cyan-900/50 selection:text-cyan-50 relative">
       <div 
-        className="fixed inset-0 z-[-2] bg-cover bg-center bg-no-repeat transition-opacity duration-300"
+        className="fixed inset-0 z-[-2] bg-cover bg-center bg-no-repeat opacity-50"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1551244072-5d12893278ab?q=80&w=2560&auto=format&fit=crop')" }}
       ></div>
       <div 
-        className="fixed inset-0 z-[-1] pointer-events-none transition-all duration-100"
-        style={{
-          background: `linear-gradient(to bottom, rgba(1, 17, 29, ${0.4 + (scrollDepth * 0.4)}), rgba(0, 0, 0, ${0.7 + (scrollDepth * 0.25)}))`
-        }}
+        className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-b from-[#01111d]/60 to-black/90"
       ></div>
       <div className="relative z-10">
         <Navbar />
@@ -557,16 +542,6 @@ const App: React.FC = () => {
         <MVPScope />
         <TechImpact />
         <Footer />
-      </div>
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-2 pointer-events-none mix-blend-screen hidden xl:flex">
-        <div className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest rotate-90 mb-8 drop-shadow-md">Surface</div>
-        <div className="w-px h-32 bg-white/30 relative shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-          <div 
-            className="absolute top-0 left-0 w-full bg-cyan-300 transition-all duration-100 shadow-[0_0_10px_#22d3ee]"
-            style={{ height: `${scrollDepth * 100}%` }}
-          ></div>
-        </div>
-        <div className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest -rotate-90 mt-8 drop-shadow-md">Abyss</div>
       </div>
     </div>
   );
