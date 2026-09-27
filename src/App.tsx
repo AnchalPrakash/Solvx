@@ -393,35 +393,57 @@ const TechImpact: React.FC = () => (
 
 // --- 7. Team Section ---
 const AboutTeam: React.FC = () => {
+  const mentor = {
+    name: "[ Mentor Name ]",
+    role: "Project Mentor",
+    description: "Provide a brief 1-2 sentence description here about how your mentor guided the vision, architecture, or scientific accuracy of the SolvX platform."
+  };
+
   const teamMembers = [
-    { name: "Team Member 1", role: "Frontend & UI/UX" },
-    { name: "Team Member 2", role: "Data Pipeline" },
-    { name: "Team Member 3", role: "3D Visualization" },
-    { name: "Team Member 4", role: "Oceanographic Models" },
-    { name: "Team Member 5", role: "Cloud Architecture" },
-    { name: "Team Member 6", role: "Research & Validation" }
+    { name: "Anchal Prakash", role: "Frontend & UI/UX" },
+    { name: "[ Teammate 2 ]", role: "Data Pipeline" },
+    { name: "[ Teammate 3 ]", role: "3D Visualization" },
+    { name: "[ Teammate 4 ]", role: "Oceanographic Models" },
+    { name: "[ Teammate 5 ]", role: "Cloud Architecture" },
+    { name: "[ Teammate 6 ]", role: "Research & Validation" }
   ];
 
   return (
     <section id="about" className="py-24 px-6 border-b border-white/10 bg-transparent">
-      <div className="max-w-[90rem] mx-auto">
+      <div className="max-w-[60rem] mx-auto">
         <SectionHeader 
           tag="The Team" 
           title="TEAM SOLVX" 
           description="Manipal Institute of Technology Bengaluru" 
         />
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mt-8">
+        {/* Mentor Card (Centered) */}
+        <div className="flex justify-center mb-12 mt-8">
+          <div className="p-8 border border-cyan-500/30 bg-cyan-950/20 backdrop-blur-md rounded-sm text-center flex flex-col items-center shadow-[0_0_30px_rgba(6,182,212,0.15)] max-w-md w-full">
+            <div className="w-20 h-20 bg-cyan-900/50 border border-cyan-400/50 rounded-full flex items-center justify-center mb-5 shadow-[0_0_20px_rgba(6,182,212,0.2)]">
+              <User size={32} className="text-cyan-300" />
+            </div>
+            <h4 className="text-white text-lg font-bold mb-2 drop-shadow-sm">{mentor.name}</h4>
+            <p className="text-[10px] font-mono text-cyan-300 uppercase tracking-widest mb-4">{mentor.role}</p>
+            <p className="text-sm text-gray-300 leading-relaxed">{mentor.description}</p>
+          </div>
+        </div>
+
+        {/* Team Members Grid (2 per row) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {teamMembers.map((member, i) => (
-            <div key={i} className="p-6 border border-white/20 bg-white/[0.05] backdrop-blur-md rounded-sm hover:bg-white/[0.1] hover:border-cyan-500/50 transition-all group text-center flex flex-col items-center shadow-md">
-              <div className="w-16 h-16 bg-cyan-950/40 border border-cyan-500/30 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-cyan-900/60 transition-all shadow-[0_0_15px_rgba(6,182,212,0.1)]">
+            <div key={i} className="p-6 border border-white/20 bg-white/[0.05] backdrop-blur-md rounded-sm hover:bg-white/[0.1] hover:border-cyan-500/50 transition-all group flex items-center gap-6 shadow-md">
+              <div className="w-16 h-16 bg-cyan-950/40 border border-cyan-500/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-cyan-900/60 transition-all shadow-[0_0_15px_rgba(6,182,212,0.1)]">
                 <User size={24} className="text-cyan-400 opacity-80" />
               </div>
-              <h4 className="text-white text-sm font-bold mb-1.5 drop-shadow-sm">{member.name}</h4>
-              <p className="text-[9px] font-mono text-cyan-300/80 uppercase tracking-widest">{member.role}</p>
+              <div className="text-left">
+                <h4 className="text-white text-md font-bold mb-1.5 drop-shadow-sm">{member.name}</h4>
+                <p className="text-[10px] font-mono text-cyan-300/80 uppercase tracking-widest leading-relaxed">{member.role}</p>
+              </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
@@ -429,7 +451,7 @@ const AboutTeam: React.FC = () => {
 
 // --- 8. Final Tiny Footer ---
 const Footer: React.FC = () => (
-  <footer className="py-8 px-6 bg-transparent flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/10 mt-16">
+  <footer className="py-8 px-6 bg-transparent flex flex-col md:flex-row justify-between items-center gap-4 mt-8">
     <div className="text-gray-300 font-mono text-[10px] uppercase tracking-widest drop-shadow-md">
       © {new Date().getFullYear()} SolvX System — Hackathon Build
     </div>
