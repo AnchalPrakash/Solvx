@@ -3,7 +3,8 @@ import {
   Activity, BarChart2, Layers, Map, Navigation, 
   Thermometer, Droplet, Target, Globe, 
   ArrowRight, Terminal, ChevronRight,
-  ArrowUpRight, ArrowDownRight, User
+  ArrowUpRight, ArrowDownRight, User,
+  Linkedin, Instagram
 } from 'lucide-react';
 
 // --- Shared UI Components ---
@@ -331,62 +332,32 @@ const IntelligenceWorkflow: React.FC = () => {
   );
 };
 
-// --- 6. Applications & Tech Stack ---
+// --- 6. Applications ---
 const TechImpact: React.FC = () => (
   <section className="py-24 px-6 border-b border-white/10 bg-transparent">
-    <div className="max-w-[90rem] mx-auto flex flex-col gap-16">
-      
-      {/* Scientific Impact */}
-      <div>
-        <div className="flex items-center gap-3 mb-8">
-          <Globe className="text-cyan-400 drop-shadow-[0_0_5px_#22d3ee]" size={20} />
-          <h2 className="text-xl font-medium text-white drop-shadow-md">Scientific Impact</h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-4">
-          {[
-            { title: "Climate Modeling", desc: "Validate boundary conditions for long-term ocean-atmosphere coupled models." },
-            { title: "Marine Navigation", desc: "Provide real-time surface current maps validated by glider tracks for routing." },
-            { title: "Ecological Monitoring", desc: "Track hypoxia and chlorophyll blooms via integrated BGC data and modeling." },
-            { title: "Disaster Management", desc: "Anticipate coastal hazards by rapidly comparing real-time telemetry against predictive spatial models." },
-            { title: "Search & Rescue", desc: "Improve drift trajectory predictions by refining surface current models with live observational data." },
-            { title: "Fisheries", desc: "Identify optimal pelagic zones and protect habitats by analyzing depth-aware temperature and chlorophyll layers." },
-            { title: "Climate Monitoring", desc: "Track long-term oceanic shifts by grounding decadal model forecasts directly in historical in-situ data." },
-            { title: "Scientific Research", desc: "Accelerate discovery through a unified environment for visual comparison of complex multi-dimensional arrays." }
-          ].map((item, i) => (
-            <div key={i} className="pl-5 border-l-2 border-cyan-400/50 bg-white/[0.05] backdrop-blur-md p-4 rounded-r-sm shadow-sm hover:bg-white/[0.1] transition-colors">
-              <h4 className="text-white text-sm font-medium mb-1.5 drop-shadow-sm">{item.title}</h4>
-              <p className="text-sm text-gray-200">{item.desc}</p>
-            </div>
-          ))}
-        </div>
+    <div className="max-w-[90rem] mx-auto">
+      <SectionHeader 
+        tag="Use Cases" 
+        title="SCIENTIFIC IMPACT" 
+        description="Translating complex multidimensional datasets into actionable operational intelligence."
+      />
+      <div className="grid md:grid-cols-2 gap-4">
+        {[
+          { title: "Climate Modeling", desc: "Validate boundary conditions for long-term ocean-atmosphere coupled models." },
+          { title: "Marine Navigation", desc: "Provide real-time surface current maps validated by glider tracks for routing." },
+          { title: "Ecological Monitoring", desc: "Track hypoxia and chlorophyll blooms via integrated BGC data and modeling." },
+          { title: "Disaster Management", desc: "Anticipate coastal hazards by rapidly comparing real-time telemetry against predictive spatial models." },
+          { title: "Search & Rescue", desc: "Improve drift trajectory predictions by refining surface current models with live observational data." },
+          { title: "Fisheries", desc: "Identify optimal pelagic zones and protect habitats by analyzing depth-aware temperature and chlorophyll layers." },
+          { title: "Climate Monitoring", desc: "Track long-term oceanic shifts by grounding decadal model forecasts directly in historical in-situ data." },
+          { title: "Scientific Research", desc: "Accelerate discovery through a unified environment for visual comparison of complex multi-dimensional arrays." }
+        ].map((item, i) => (
+          <div key={i} className="pl-5 border-l-2 border-cyan-400/50 bg-white/[0.05] backdrop-blur-md p-4 rounded-r-sm shadow-sm hover:bg-white/[0.1] transition-colors">
+            <h4 className="text-white text-sm font-medium mb-1.5 drop-shadow-sm">{item.title}</h4>
+            <p className="text-sm text-gray-200">{item.desc}</p>
+          </div>
+        ))}
       </div>
-
-      {/* System Architecture */}
-      <div>
-        <div className="flex items-center gap-3 mb-8">
-          <Terminal className="text-cyan-400 drop-shadow-[0_0_5px_#22d3ee]" size={20} />
-          <h2 className="text-xl font-medium text-white drop-shadow-md">System Architecture</h2>
-        </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
-          <div className="p-5 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
-            <div className="text-gray-400 mb-2 uppercase tracking-widest text-[9px]">Frontend_UI</div>
-            <div className="text-gray-100 font-bold text-sm">React + TS + Tailwind</div>
-          </div>
-          <div className="p-5 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
-            <div className="text-gray-400 mb-2 uppercase tracking-widest text-[9px]">Renderer</div>
-            <div className="text-cyan-300 font-bold text-sm drop-shadow-sm">Three.js / WebGL</div>
-          </div>
-          <div className="p-5 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
-            <div className="text-gray-400 mb-2 uppercase tracking-widest text-[9px]">Data_Processing</div>
-            <div className="text-gray-100 font-bold text-sm">Python + Xarray + Zarr</div>
-          </div>
-          <div className="p-5 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
-            <div className="text-gray-400 mb-2 uppercase tracking-widest text-[9px]">Pipeline_Orchestration</div>
-            <div className="text-gray-100 font-bold text-sm">GitHub Actions / Vercel</div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 );
@@ -396,21 +367,59 @@ const AboutTeam: React.FC = () => {
   const mentor = {
     name: "[ Mentor Name ]",
     role: "Project Mentor",
-    description: "Provide a brief 1-2 sentence description here about how your mentor guided the vision, architecture, or scientific accuracy of the SolvX platform."
+    description: "Provide a brief description of how your mentor guided the architecture, vision, or scientific accuracy of the SolvX platform for the hackathon.",
+    linkedin: "#",
+    instagram: "#"
   };
 
   const teamMembers = [
-    { name: "Anchal Prakash", role: "Frontend & UI/UX" },
-    { name: "[ Teammate 2 ]", role: "Data Pipeline" },
-    { name: "[ Teammate 3 ]", role: "3D Visualization" },
-    { name: "[ Teammate 4 ]", role: "Oceanographic Models" },
-    { name: "[ Teammate 5 ]", role: "Cloud Architecture" },
-    { name: "[ Teammate 6 ]", role: "Research & Validation" }
+    { 
+      name: "Anchal Prakash", 
+      role: "Frontend & UI/UX", 
+      desc: "Responsible for React architecture, glassmorphism design system, and responsive UI implementations.",
+      linkedin: "#", 
+      instagram: "#" 
+    },
+    { 
+      name: "[ Teammate 2 ]", 
+      role: "Data Pipeline", 
+      desc: "Describe their role handling NetCDF datasets, API integrations, and backend data parsing.",
+      linkedin: "#", 
+      instagram: "#" 
+    },
+    { 
+      name: "[ Teammate 3 ]", 
+      role: "3D Visualization", 
+      desc: "Describe their role building the Three.js canvas, volumetric rendering, and spatial plotting.",
+      linkedin: "#", 
+      instagram: "#" 
+    },
+    { 
+      name: "[ Teammate 4 ]", 
+      role: "Oceanographic Models", 
+      desc: "Describe their role ensuring scientific accuracy across physical and biogeochemical variables.",
+      linkedin: "#", 
+      instagram: "#" 
+    },
+    { 
+      name: "[ Teammate 5 ]", 
+      role: "Cloud Architecture", 
+      desc: "Describe their role managing Vercel deployments, GitHub Actions, and environment setup.",
+      linkedin: "#", 
+      instagram: "#" 
+    },
+    { 
+      name: "[ Teammate 6 ]", 
+      role: "Research & Validation", 
+      desc: "Describe their role validating model comparisons against Argo and Glider ground truth data.",
+      linkedin: "#", 
+      instagram: "#" 
+    }
   ];
 
   return (
     <section id="about" className="py-24 px-6 border-b border-white/10 bg-transparent">
-      <div className="max-w-[60rem] mx-auto">
+      <div className="max-w-[70rem] mx-auto">
         <SectionHeader 
           tag="The Team" 
           title="TEAM SOLVX" 
@@ -418,27 +427,40 @@ const AboutTeam: React.FC = () => {
         />
         
         {/* Mentor Card (Centered) */}
-        <div className="flex justify-center mb-12 mt-8">
-          <div className="p-8 border border-cyan-500/30 bg-cyan-950/20 backdrop-blur-md rounded-sm text-center flex flex-col items-center shadow-[0_0_30px_rgba(6,182,212,0.15)] max-w-md w-full">
-            <div className="w-20 h-20 bg-cyan-900/50 border border-cyan-400/50 rounded-full flex items-center justify-center mb-5 shadow-[0_0_20px_rgba(6,182,212,0.2)]">
+        <div className="flex justify-center mb-16 mt-8">
+          <div className="p-8 border border-cyan-500/30 bg-cyan-950/20 backdrop-blur-md rounded-sm text-center flex flex-col items-center shadow-[0_0_30px_rgba(6,182,212,0.15)] max-w-lg w-full relative group">
+            <div className="w-20 h-20 bg-cyan-900/50 border border-cyan-400/50 rounded-full flex items-center justify-center mb-5 shadow-[0_0_20px_rgba(6,182,212,0.2)] group-hover:scale-105 transition-transform">
               <User size={32} className="text-cyan-300" />
             </div>
-            <h4 className="text-white text-lg font-bold mb-2 drop-shadow-sm">{mentor.name}</h4>
-            <p className="text-[10px] font-mono text-cyan-300 uppercase tracking-widest mb-4">{mentor.role}</p>
-            <p className="text-sm text-gray-300 leading-relaxed">{mentor.description}</p>
+            <h4 className="text-white text-xl font-bold mb-2 drop-shadow-sm">{mentor.name}</h4>
+            <p className="text-xs font-mono text-cyan-300 uppercase tracking-widest mb-4">{mentor.role}</p>
+            <p className="text-sm text-gray-300 leading-relaxed mb-6 px-4">{mentor.description}</p>
+            <div className="flex items-center gap-4 mt-auto border-t border-white/10 pt-4 w-full justify-center">
+              <a href={mentor.linkedin} className="text-gray-400 hover:text-cyan-400 transition-colors" target="_blank" rel="noreferrer"><Linkedin size={20} /></a>
+              <a href={mentor.instagram} className="text-gray-400 hover:text-pink-400 transition-colors" target="_blank" rel="noreferrer"><Instagram size={20} /></a>
+            </div>
           </div>
         </div>
 
-        {/* Team Members Grid (2 per row) */}
+        {/* Team Members Grid (2 per row with big boxes) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {teamMembers.map((member, i) => (
-            <div key={i} className="p-6 border border-white/20 bg-white/[0.05] backdrop-blur-md rounded-sm hover:bg-white/[0.1] hover:border-cyan-500/50 transition-all group flex items-center gap-6 shadow-md">
-              <div className="w-16 h-16 bg-cyan-950/40 border border-cyan-500/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-cyan-900/60 transition-all shadow-[0_0_15px_rgba(6,182,212,0.1)]">
-                <User size={24} className="text-cyan-400 opacity-80" />
+            <div key={i} className="p-6 md:p-8 border border-white/20 bg-white/[0.05] backdrop-blur-md rounded-sm hover:bg-white/[0.1] hover:border-cyan-500/50 transition-all group flex flex-col shadow-md">
+              <div className="flex items-center gap-5 mb-4">
+                <div className="w-16 h-16 bg-cyan-950/40 border border-cyan-500/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-cyan-900/60 transition-all shadow-[0_0_15px_rgba(6,182,212,0.1)]">
+                  <User size={24} className="text-cyan-400 opacity-80" />
+                </div>
+                <div>
+                  <h4 className="text-white text-lg font-bold mb-1 drop-shadow-sm">{member.name}</h4>
+                  <p className="text-[10px] font-mono text-cyan-300/80 uppercase tracking-widest">{member.role}</p>
+                </div>
               </div>
-              <div className="text-left">
-                <h4 className="text-white text-md font-bold mb-1.5 drop-shadow-sm">{member.name}</h4>
-                <p className="text-[10px] font-mono text-cyan-300/80 uppercase tracking-widest leading-relaxed">{member.role}</p>
+              <p className="text-sm text-gray-300 leading-relaxed flex-1 mb-6">
+                {member.desc}
+              </p>
+              <div className="flex items-center gap-4 mt-auto border-t border-white/10 pt-4">
+                <a href={member.linkedin} className="text-gray-400 hover:text-cyan-400 transition-colors" target="_blank" rel="noreferrer"><Linkedin size={18} /></a>
+                <a href={member.instagram} className="text-gray-400 hover:text-pink-400 transition-colors" target="_blank" rel="noreferrer"><Instagram size={18} /></a>
               </div>
             </div>
           ))}
@@ -449,7 +471,38 @@ const AboutTeam: React.FC = () => {
   );
 };
 
-// --- 8. Final Tiny Footer ---
+// --- 8. System Architecture (Moved to End) ---
+const SystemArchitecture: React.FC = () => (
+  <section className="py-24 px-6 border-b border-white/10 bg-transparent">
+    <div className="max-w-[90rem] mx-auto">
+      <SectionHeader 
+        tag="Tech Stack" 
+        title="SYSTEM ARCHITECTURE" 
+        description="Built for performance, scalability, and seamless multidimensional processing."
+      />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs mt-8">
+        <div className="p-6 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
+          <div className="text-gray-400 mb-3 uppercase tracking-widest text-[10px]">Frontend_UI</div>
+          <div className="text-gray-100 font-bold text-base">React + TS + Tailwind</div>
+        </div>
+        <div className="p-6 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
+          <div className="text-gray-400 mb-3 uppercase tracking-widest text-[10px]">Renderer</div>
+          <div className="text-cyan-300 font-bold text-base drop-shadow-sm">Three.js / WebGL</div>
+        </div>
+        <div className="p-6 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
+          <div className="text-gray-400 mb-3 uppercase tracking-widest text-[10px]">Data_Processing</div>
+          <div className="text-gray-100 font-bold text-base">Python + Xarray + Zarr</div>
+        </div>
+        <div className="p-6 border border-white/20 bg-white/[0.05] backdrop-blur-xl rounded-sm shadow-sm hover:bg-white/[0.1] transition-colors">
+          <div className="text-gray-400 mb-3 uppercase tracking-widest text-[10px]">Pipeline_Orch</div>
+          <div className="text-gray-100 font-bold text-base">GitHub Actions / Vercel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// --- 9. Final Tiny Footer ---
 const Footer: React.FC = () => (
   <footer className="py-8 px-6 bg-transparent flex flex-col md:flex-row justify-between items-center gap-4 mt-8">
     <div className="text-gray-300 font-mono text-[10px] uppercase tracking-widest drop-shadow-md">
@@ -483,6 +536,7 @@ const App: React.FC = () => {
         <IntelligenceWorkflow />
         <TechImpact />
         <AboutTeam />
+        <SystemArchitecture />
         <Footer />
       </div>
     </div>
